@@ -140,14 +140,14 @@ public class CarPark {
      * @param make Make of car to find
      * @return result of finding car(s) by make
      */
-    public ArrayList<Car> findCarByMake(String make) {
-        ArrayList<Car> result = new ArrayList<Car>(); // Initialize array list
+    public ArrayList<ParkingSpot> findCarByMake(String make) {
+        ArrayList<ParkingSpot> result = new ArrayList<ParkingSpot>(); // Initialize array list
         for (ParkingSpot current : this.parkingSpots) {
             // Check if parking spot is occupied
             if (current.isOccupied()) {
                 // Check if parked car matches make
                 if (current.getParkedCar().getMake().equals(make)) {
-                    result.add(current.getParkedCar());
+                    result.add(current);
                 }
             }
         }
