@@ -206,13 +206,25 @@ public class CarparkSystem
      * @param make user input from dialog text field
      */
     public void findCarByMakeHandler(String make) {
-        ArrayList<Car> result = carPark.findCarByMake(make);
+        ArrayList<ParkingSpot> result = carPark.findCarByMake(make);
         if (result.isEmpty()) {
             // If no car is found, show error
             showInfo("No cars found with make " + make, "Error");
         } else {
+            String message = "<html>" + result.size() + "car(s) found with make " + make + "<br />====================="; // Initialize message
             // Iterate through array list and print result
+            for (ParkingSpot current : result) {
+                Car parkedCar = current.getParkedCar();
+                message = message + "<br />" + parkedCar.getRegNo() + " " + parkedCar.getMake() + " " + parkedCar.getModel() + " " + parkedCar.getYear() + " parked at spot " + current.getId();
+            }
+
+            // Close html tag
+            message += "</html>";
+
+            // Show message to user
+            showInfo(message, "Info");
         }
+        findCarByMakeDialog.setVisible(false);
     }
 
     /**
