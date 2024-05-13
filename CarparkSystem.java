@@ -22,6 +22,7 @@ public class CarparkSystem
     private FormDialog deleteParkingSpotDialog = new FormDialog(this, frame, "Delete parking spot", "Delete", "Enter spot ID: ");
     private ParkCarDialog parkCarDialog = new ParkCarDialog(this, frame);
     private FormDialog findCarByRegNoDialog = new FormDialog(this, frame, "Find car by reg number", "Find by registration number", "Enter registration number: ");
+    private FormDialog removeCarByRegNoDialog = new FormDialog(this, frame, "Remove car by reg number", "Remove by registration number", "Enter registration number: ");
     private FormDialog findCarByMakeDialog = new FormDialog(this, frame, "Find car by make", "Find by make", "Enter make: ");
 
     public CarparkSystem()
@@ -189,6 +190,14 @@ public class CarparkSystem
             showInfo("Car with registration " + regNo + " found on spot " + result, "Info");
         }
         findCarByRegNoDialog.setVisible(false);
+    }
+
+    /**
+     * Handles opening the remove car by registration number dialog
+     */
+    public void openRemoveCarByRegNoDialog() {
+        removeCarByRegNoDialog.setLocationRelativeTo(frame); // Center dialog in the middle of the frame
+        removeCarByRegNoDialog.setVisible(true); // Show dialog
     }
 
     /**
