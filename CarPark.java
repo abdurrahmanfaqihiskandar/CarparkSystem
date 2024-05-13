@@ -67,11 +67,11 @@ public class CarPark {
             if (current.getId().equals(spotId)) {
                 // Check if spot is occupied
                 if (current.isOccupied()) {
-                    message = "Spot is occupied.";
+                    message = "Spot is occupied."; // Update result message
                 } else {
                     it.remove(); // Remove parking spot
                     this.noUnoccupiedSpots--; // Reduce number of unoccupied spots
-                    message = "Parking spot deleted successfully.";
+                    message = "Parking spot deleted successfully."; // Update result message
                 }
                 break;
             }
@@ -92,7 +92,7 @@ public class CarPark {
         // Check if car is unique
         boolean isCarUnique = Validators.checkCarParkedIsUnique(car.getRegNo(), this.parkingSpots);
         if (!isCarUnique) {
-            message = "Car is already parked in another parking slot.";
+            message = "Car is already parked in another parking slot."; // Update result message
             return message;
         }
 
@@ -106,7 +106,7 @@ public class CarPark {
                 } else {
                     current.addCar(car);
                     this.noUnoccupiedSpots--; // Reduce number of unoccupied spots
-                    message = "Car parked successfully";
+                    message = "Car parked successfully"; // Update result message
                 }
                 break;
             }
@@ -128,6 +128,28 @@ public class CarPark {
                 // Check if parked car matches registration number
                 if (current.getParkedCar().getRegNo().equals(regNo)) {
                     message = current.getId();
+                    break;
+                }
+            }
+        }
+        return message;
+    }
+
+    /**
+     * Removes a car by registration number and returns the result of operation
+     * @param regNo Registration number of car to remove
+     * @return spot ID that used to hold parked car
+     */
+    public String removeCarByRegNo(String regNo) {
+        String message = "Car not parked here."; // Initialize message
+        for (ParkingSpot current : this.parkingSpots) {
+            // Check if parking spot is occupied
+            if (current.isOccupied()) {
+                // Check if parked car matches registration number
+                if (current.getParkedCar().getRegNo().equals(regNo)) {
+                    current.removeCar(); // Remove car from parking spot
+                    this.noUnoccupiedSpots++; // Increase number of unoccupied spots
+                    message = current.getId(); // Update result message
                     break;
                 }
             }

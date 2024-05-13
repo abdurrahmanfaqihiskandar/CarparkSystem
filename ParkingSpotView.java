@@ -38,13 +38,18 @@ public class ParkingSpotView extends JButton {
     }
 
     /**
-     * Update parking spot view with parked car in model
+     * Update parking spot view with changes in parking spot model
      */
     public void updateParkingSpotView() {
-        Car parkedCar = parkingSpot.getParkedCar();
-        parkedCarDetails.setText("<html>Registration: " + parkedCar.getRegNo() + "<br />"
-                + parkedCar.getMake() + " " + parkedCar.getModel() + " " + parkedCar.getYear() + "</html>");
-        add(parkedCarDetails, BorderLayout.CENTER);
-//        revalidate();
+        if (parkingSpot.isOccupied()) {
+            // Add car details to parking spot view
+            Car parkedCar = parkingSpot.getParkedCar();
+            parkedCarDetails.setText("<html>Registration: " + parkedCar.getRegNo() + "<br />"
+                    + parkedCar.getMake() + " " + parkedCar.getModel() + " " + parkedCar.getYear() + "</html>");
+            add(parkedCarDetails, BorderLayout.CENTER);
+        } else {
+            // Remove car details from parking spot view
+            remove(parkedCarDetails);
+        }
     }
 }

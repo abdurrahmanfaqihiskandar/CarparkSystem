@@ -45,7 +45,7 @@ public class CarparkSystem
     }
 
     /**
-     * Handles closing the add parking spot dialog.
+     * Handles adding a parking spot.
      * CarparkSystem will pass user input to CarPark model
      * and the newly created parking spot to carpark view.
      * @param spotId id input from dialog text field
@@ -74,7 +74,7 @@ public class CarparkSystem
     }
 
     /**
-     * Handles closing the delete parking spot dialog.
+     * Handles deleting a parking spot.
      * CarparkSystem will pass user input to CarPark model
      * to delete parking spot.
      * @param spotId id input from dialog text field
@@ -144,7 +144,7 @@ public class CarparkSystem
     }
 
     /**
-     * Handles closing the select parking spot dialog.
+     * Handles parking a car in a parking spot.
      * CarparkSystem will pass spot ID and car to CarPark model
      * to park car in parking spot.
      * @param spotId user input from dialog text field
@@ -175,18 +175,19 @@ public class CarparkSystem
     }
 
     /**
-     * Handles closing the find car by registration number dialog.
+     * Handles finding car by registration number.
      * CarparkSystem will pass registration number to CarPark model
      * to find car by registration number.
      * @param regNo user input from dialog text field
      */
     public void findCarByRegNoHandler(String regNo) {
-        String result = carPark.findCarByRegNo(regNo);
+        String result = carPark.findCarByRegNo(regNo); // Find car
         if (result.equals("Car not parked here.")) {
             // If car is not found, show error
             showInfo(result, "Error");
             return; // To not close the dialog
         } else {
+            // Show result
             showInfo("Car with registration " + regNo + " found on spot " + result, "Info");
         }
         findCarByRegNoDialog.setVisible(false);
@@ -198,6 +199,27 @@ public class CarparkSystem
     public void openRemoveCarByRegNoDialog() {
         removeCarByRegNoDialog.setLocationRelativeTo(frame); // Center dialog in the middle of the frame
         removeCarByRegNoDialog.setVisible(true); // Show dialog
+    }
+
+    /**
+     * Handles removing car by registration number.
+     * CarparkSystem will pass registration number to CarPark model
+     * to remove car by registration number.
+     * @param regNo user input from dialog text field
+     */
+    public void removeCarByRegNoHandler(String regNo) {
+        String result = carPark.removeCarByRegNo(regNo); // Remove car
+        if (result.equals("Car not parked here.")) {
+            // If car is not found, show error
+            showInfo(result, "Error");
+            return; // To not close the dialog
+        } else {
+            // Update parking spot view
+            carparkView.updateParkingSpotView(result);
+            // Show result
+            showInfo("Car with registration number " + regNo + " removed from spot " + result, "Info");
+        }
+        removeCarByRegNoDialog.setVisible(false);
     }
 
     /**
@@ -219,7 +241,9 @@ public class CarparkSystem
         if (result.isEmpty()) {
             // If no car is found, show error
             showInfo("No cars found with make " + make, "Error");
+            return; // To not close the dialog
         } else {
+            // Show result
             String message = "<html>" + result.size() + "car(s) found with make " + make + "<br />====================="; // Initialize message
             // Iterate through array list and print result
             for (ParkingSpot current : result) {

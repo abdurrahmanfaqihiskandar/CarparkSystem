@@ -42,6 +42,9 @@ public class FormDialog extends JDialog {
             case "Find by registration number":
                 this.actionButton.addActionListener(e -> DialogActionListeners.findByRegNoActionListener(this.formTextField, this.parent, this.controller));
                 break;
+            case "Remove by registration number":
+                this.actionButton.addActionListener(e -> DialogActionListeners.removeByRegNoActionListener(this.formTextField, this.parent, this.controller));
+                break;
             case "Find by make":
                 this.actionButton.addActionListener(e -> DialogActionListeners.findByMakeActionListener(this.formTextField, this.parent, this.controller));
                 break;
