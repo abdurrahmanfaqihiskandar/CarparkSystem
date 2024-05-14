@@ -1,7 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  * Project 2: MenuPanel class that extends JPanel.
@@ -22,12 +20,7 @@ public class MenuPanel extends JPanel {
     private MenuButton removeCarByRegNoBtn = new MenuButton("Remove Car By Reg Number", e -> controller.openRemoveCarByRegNoDialog());
     private MenuButton findCarByMakeBtn = new MenuButton("Find Car By Make", e -> controller.openFindCarByMakeDialog());
     private MenuButton resetCarparkBtn = new MenuButton("Reset Carpark", e -> controller.openResetCarparkDialog());
-    private MenuButton exitBtn = new MenuButton("Exit Program", new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            controller.openAddParkingSpotDialog();
-        }
-    });
+    private MenuButton exitBtn = new MenuButton("Exit Program", e -> controller.openExitProgramDialog());
 
     public MenuPanel(CarparkSystem controller) {
         this.controller = controller;

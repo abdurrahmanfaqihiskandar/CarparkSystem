@@ -151,4 +151,12 @@ public class DialogActionListeners {
     public static void resetCarParkActionListener(CarparkSystem controller) {
         controller.resetCarparkHandler();
     }
+
+    /**
+     * Handles exit program button click.
+     * @param controller controller class
+     */
+    public static void exitProgramActionListener(CarparkSystem controller) {
+        controller.exitProgramHandler();
+    }
 }

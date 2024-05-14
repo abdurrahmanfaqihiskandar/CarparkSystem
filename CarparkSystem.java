@@ -24,7 +24,8 @@ public class CarparkSystem
     private FormDialog findCarByRegNoDialog = new FormDialog(this, frame, "Find car by reg number", "Find by registration number", "Enter registration number: ");
     private FormDialog removeCarByRegNoDialog = new FormDialog(this, frame, "Remove car by reg number", "Remove by registration number", "Enter registration number: ");
     private FormDialog findCarByMakeDialog = new FormDialog(this, frame, "Find car by make", "Find by make", "Enter make: ");
-    private ResetCarParkDialog resetCarParkDialog;
+    private ActionDialog resetCarParkDialog;
+    private ActionDialog exitProgramDialog = new ActionDialog(this, frame, "Exit program", ActionDialog.EXIT, "Program ends!");
 
     public CarparkSystem()
     {
@@ -272,7 +273,7 @@ public class CarparkSystem
         String message = numberOfCarsParked + " car(s) is being removed to reset the carpark.";
 
         // Open reset car park dialog
-        resetCarParkDialog = new ResetCarParkDialog(this, frame, message); // Create dialog
+        resetCarParkDialog = new ActionDialog(this, frame, "Reset carpark", "Reset", message); // Create dialog
         resetCarParkDialog.setLocationRelativeTo(frame); // Center dialog in the middle of the frame
         resetCarParkDialog.setVisible(true); // Show dialog
     }
@@ -289,6 +290,21 @@ public class CarparkSystem
 
         // Close dialog
         resetCarParkDialog.setVisible(false);
+    }
+
+    /**
+     * Handles opening reset car park dialog
+     */
+    public void openExitProgramDialog() {
+        this.exitProgramDialog.setLocationRelativeTo(frame); // Center dialog in the middle of the frame
+        this.exitProgramDialog.setVisible(true);
+    }
+
+    /**
+     * Function to exit the program
+     */
+    public void exitProgramHandler() {
+        System.exit(0); // Exit the program
     }
 
     /**

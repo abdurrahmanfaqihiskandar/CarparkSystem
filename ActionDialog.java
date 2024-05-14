@@ -2,22 +2,24 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Project 2: ResetCarParkDialog class extends JDialog.
- * Shows info on reset car park action.
+ * Project 2: ActionDialog class extends JDialog.
+ * General dialog component for car park actions.
  * Stores reference to controller CarparkSystem, action buttons and label.
  *
  * @author Abdurrahman Faqih 104675143
  * @version 0.1 9 May 2024
  */
 
-public class ResetCarParkDialog extends JDialog {
+public class ActionDialog extends JDialog {
     private CarparkSystem controller;
-    private JButton resetButton = new JButton("Reset");
+    private JButton actionButton;
     private JButton closeButton = new JButton("Cancel");
     private JLabel resetMessage;
+    public static final String RESET = "Reset";
+    public static final String EXIT = "Exit";
 
-    public ResetCarParkDialog(CarparkSystem controller, JFrame parent, String message) {
-        super(parent, "Reset Carpark", true);
+    public ActionDialog(CarparkSystem controller, JFrame parent, String title, String action, String message) {
+        super(parent, title, true);
         this.controller = controller;
 
         setLayout(new FlowLayout());
@@ -27,8 +29,13 @@ public class ResetCarParkDialog extends JDialog {
         add(resetMessage);
 
         // Add reset button
-        this.resetButton.addActionListener(e -> DialogActionListeners.resetCarParkActionListener(this.controller));
-        add(resetButton);
+        actionButton = new JButton(action);
+        if (action.equals(ActionDialog.RESET)) {
+            this.actionButton.addActionListener(e -> DialogActionListeners.resetCarParkActionListener(this.controller));
+        } else {
+            this.actionButton.addActionListener(e -> DialogActionListeners.exitProgramActionListener(this.controller));
+        }
+        add(actionButton);
 
         // Add close button
         this.closeButton.addActionListener(e -> this.setVisible(false));
