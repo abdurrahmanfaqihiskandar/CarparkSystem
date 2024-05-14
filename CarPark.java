@@ -127,6 +127,7 @@ public class CarPark {
             if (current.isOccupied()) {
                 // Check if parked car matches registration number
                 if (current.getParkedCar().getRegNo().equals(regNo)) {
+                    // Get car details
                     message = "<html>Car with registration " + regNo + " found on spot " + current.getId()
                             + "<br />Duration of parking: " + current.getParkedCar().getDurationOfParking();
                     break;
@@ -170,6 +171,7 @@ public class CarPark {
             if (current.isOccupied()) {
                 // Check if parked car matches make
                 if (current.getParkedCar().getMake().equals(make)) {
+                    // Get car details
                     Car parkedCar = current.getParkedCar();
                     String carDetails = parkedCar.getRegNo() + " " + parkedCar.getMake() + " "
                             + parkedCar.getModel() + " " + parkedCar.getYear() + " parked at spot " + current.getId()

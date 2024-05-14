@@ -12,18 +12,21 @@ import java.time.format.DateTimeFormatter;
 
 public class TimerPanel extends JPanel {
     private JLabel timeLabel = new JLabel();
-    private final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("HH:mm:ss");
+    private final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("HH:mm:ss"); // Format datetime object
 
     public TimerPanel() {
         add(timeLabel);
-        Timer timer = new Timer(1000, e -> this.timerListener());
-        timer.setInitialDelay(0);
-        timer.start();
+        Timer timer = new Timer(1000, e -> this.timerListener()); // Create timer with 1000ms delay
+        timer.setInitialDelay(0); // Set initial delay to 0
+        timer.start(); // Start timer
     }
 
+    /**
+     * Action listener for timer
+     */
     public void timerListener() {
-        LocalDateTime now = LocalDateTime.now();
-        String timeString = now.format(FORMATTER);
-        this.timeLabel.setText("Current time: " + timeString);
+        LocalDateTime now = LocalDateTime.now(); // Get time now
+        String timeString = now.format(FORMATTER); // Format time
+        this.timeLabel.setText("Current time: " + timeString); // Set label text
     }
 }
