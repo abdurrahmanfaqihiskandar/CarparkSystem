@@ -101,8 +101,8 @@ public class CarparkSystem
     }
 
     /**
-     * Prints id, whether occupied, and if occupied, car's registration and make
-     * of all spots in a well-defined format.
+     * Prints id, whether occupied, and if occupied, car's registration, make
+     * and duration of parking of all spots in a well-defined format.
      * Also prints summary of total spots, number of occupied spots and number
      * of unoccupied spots in car park
      */
@@ -117,7 +117,8 @@ public class CarparkSystem
 
         // Add summary info
         message = "<html>Summary<br />=====================<br />";
-        message = message + "Total number of parking spots: " + carParkSize + "<br />Occupied spots: " + noOccupiedSpots + "<br />Unoccupied spots: " + noUnoccupiedSpots;
+        message = message + "Total number of parking spots: " + carParkSize + "<br />Occupied spots: "
+                + noOccupiedSpots + "<br />Unoccupied spots: " + noUnoccupiedSpots;
 
         // Add info about parking spots
         if (!parkingSpots.isEmpty()) {
@@ -128,7 +129,10 @@ public class CarparkSystem
                 // Loop through parking spots and print out
                 // spot id, whether it is occupied,
                 // if occupied, registration and make of car
-                message = message + "<br />Spot ID: " + current.getId() + ", " + (current.isOccupied() ? "Parked car: " + current.getParkedCar().getRegNo() + " " + current.getParkedCar().getMake() : "Empty");
+                message = message + "<br />Spot ID: " + current.getId() + ", " + (current.isOccupied()
+                        ? "Parked car: " + current.getParkedCar().getRegNo() + " " + current.getParkedCar().getMake()
+                        + "<br />Duration of parking: " + current.getParkedCar().getDurationOfParking() + "<br />"
+                        : "Empty");
             }
         }
 
@@ -252,7 +256,8 @@ public class CarparkSystem
             // Iterate through array list and print result
             for (ParkingSpot current : result) {
                 Car parkedCar = current.getParkedCar();
-                message = message + "<br />" + parkedCar.getRegNo() + " " + parkedCar.getMake() + " " + parkedCar.getModel() + " " + parkedCar.getYear() + " parked at spot " + current.getId();
+                message = message + "<br />" + parkedCar.getRegNo() + " " + parkedCar.getMake() + " "
+                        + parkedCar.getModel() + " " + parkedCar.getYear() + " parked at spot " + current.getId();
             }
 
             // Close html tag
