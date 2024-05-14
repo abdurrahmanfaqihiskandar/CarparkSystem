@@ -15,7 +15,7 @@ public class CarparkSystem
 {
     private CarPark carPark = new CarPark();
     private JFrame frame = new JFrame("Carpark");
-    private CarparkView carparkView = new CarparkView(carPark);
+    private CarparkView carparkView = new CarparkView();
     private MenuPanel menuPanel = new MenuPanel(this);
 
     private FormDialog addParkingSpotDialog = new FormDialog(this, frame, "Add parking spot", "Add", "Enter spot ID: ");
@@ -245,7 +245,7 @@ public class CarparkSystem
             return; // To not close the dialog
         } else {
             // Show result
-            String message = "<html>" + result.size() + "car(s) found with make " + make + "<br />====================="; // Initialize message
+            String message = "<html>" + result.size() + " car(s) found with make " + make + "<br />====================="; // Initialize message
             // Iterate through array list and print result
             for (ParkingSpot current : result) {
                 Car parkedCar = current.getParkedCar();

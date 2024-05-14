@@ -5,19 +5,16 @@ import java.util.Iterator;
 
 /**
  * Project 2: CarparkView class that extends JPanel.
- * Stores reference to carPark, and list of parkingSpotViews.
+ * Stores list of parkingSpotViews.
  *
  * @author Abdurrahman Faqih 104675143
  * @version 0.1 9 May 2024
  */
 
 public class CarparkView extends JPanel {
-    private CarPark carPark;
     private ArrayList<ParkingSpotView> parkingSpotViews = new ArrayList<ParkingSpotView>();
 
-    public CarparkView(CarPark carPark) {
-        this.carPark = carPark;
-
+    public CarparkView() {
         // Set view settings
         this.setBackground(new Color(240, 242, 245));
         this.setBorder(BorderFactory.createEmptyBorder(2, 2, 2, 2));
