@@ -4,18 +4,20 @@ import java.time.format.DateTimeFormatter;
 
 /**
  * Project 2: ParkingSpotView class that extends JButton.
- * Stores model of parkingSpot.
+ * Stores reference to controller CarparkSystem and model of parkingSpot.
  *
  * @author Abdurrahman Faqih 104675143
  * @version 0.1 9 May 2024
  */
 
 public class ParkingSpotView extends JButton {
+    private CarparkSystem controller;
     private ParkingSpot parkingSpot;
     private JLabel parkingSpotId = new JLabel();
     private JLabel parkedCarDetails = new JLabel();
 
-    public ParkingSpotView(ParkingSpot parkingSpot) {
+    public ParkingSpotView(CarparkSystem controller, ParkingSpot parkingSpot) {
+        this.controller = controller;
         this.parkingSpot = parkingSpot;
 
         // Set view settings
@@ -28,6 +30,9 @@ public class ParkingSpotView extends JButton {
         // Add components
         parkingSpotId.setText(parkingSpot.getId());
         add(parkingSpotId, BorderLayout.NORTH);
+
+        // Add action listener to parking spot
+        this.addActionListener(e -> this.clickActionListener());
     }
 
     /**
@@ -56,5 +61,12 @@ public class ParkingSpotView extends JButton {
             remove(parkedCarDetails);
             setBackground(new Color(137, 232, 138));
         }
+    }
+
+    /**
+     * Action listener for button clicks on parking spot view
+     */
+    public void clickActionListener() {
+        this.controller.openParkingSpotViewActionDialog(this);
     }
 }

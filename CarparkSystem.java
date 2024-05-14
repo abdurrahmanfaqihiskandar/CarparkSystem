@@ -15,7 +15,7 @@ public class CarparkSystem
 {
     private CarPark carPark = new CarPark();
     private JFrame frame = new JFrame("Carpark");
-    private CarparkView carparkView = new CarparkView();
+    private CarparkView carparkView = new CarparkView(this);
     private MenuPanel menuPanel = new MenuPanel(this);
     private TimerPanel timerPanel = new TimerPanel();
 
@@ -27,6 +27,7 @@ public class CarparkSystem
     private FormDialog findCarByMakeDialog = new FormDialog(this, frame, "Find car by make", "Find by make", "Enter make: ");
     private ActionDialog resetCarParkDialog;
     private ActionDialog exitProgramDialog = new ActionDialog(this, frame, "Exit program", ActionDialog.EXIT, "Program ends!");
+    private ParkingSpotViewActionDialog parkingSpotViewActionDialog;
 
     public CarparkSystem()
     {
@@ -310,6 +311,15 @@ public class CarparkSystem
      */
     public void exitProgramHandler() {
         System.exit(0); // Exit the program
+    }
+
+    /**
+     * Handles opening parking spot view dialog
+     */
+    public void openParkingSpotViewActionDialog(ParkingSpotView source) {
+        this.parkingSpotViewActionDialog = new ParkingSpotViewActionDialog(this, frame, source);
+        this.parkingSpotViewActionDialog.setLocationRelativeTo(frame); // Center dialog in the middle of the frame
+        this.parkingSpotViewActionDialog.setVisible(true);
     }
 
     /**
