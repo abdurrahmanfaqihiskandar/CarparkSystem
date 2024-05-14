@@ -20,16 +20,19 @@ public class ParkCarDialog extends JDialog {
     private JLabel carMakeLabel = new JLabel("Car make: ");
     private JLabel carModelLabel = new JLabel("Car model: ");
     private JLabel carYearLabel = new JLabel("Car year: ");
-    private JTextField spotIdTextField = new JTextField(10);
+    private JTextField spotIdTextField;
     private JTextField carRegTextField = new JTextField(10);
     private JTextField carMakeTextField = new JTextField(10);
     private JTextField carModelTextField = new JTextField(10);
     private JTextField carYearTextField = new JTextField(10);
 
-    public ParkCarDialog(CarparkSystem controller, JFrame parent) {
+    public ParkCarDialog(CarparkSystem controller, JFrame parent, String spotId) {
         super(parent, "Park a car", true);
         this.controller = controller;
         this.parent = parent;
+
+        // Initialize spot ID text field
+        spotIdTextField = new JTextField(spotId, 10);
 
         // Set layout of form
         setLayout(new GridLayout(0, 2));

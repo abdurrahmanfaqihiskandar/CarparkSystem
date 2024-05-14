@@ -21,7 +21,7 @@ public class CarparkSystem
 
     private FormDialog addParkingSpotDialog = new FormDialog(this, frame, "Add parking spot", "Add", "Enter spot ID: ");
     private FormDialog deleteParkingSpotDialog = new FormDialog(this, frame, "Delete parking spot", "Delete", "Enter spot ID: ");
-    private ParkCarDialog parkCarDialog = new ParkCarDialog(this, frame);
+    private ParkCarDialog parkCarDialog;
     private FormDialog findCarByRegNoDialog = new FormDialog(this, frame, "Find car by reg number", "Find by registration number", "Enter registration number: ");
     private FormDialog removeCarByRegNoDialog = new FormDialog(this, frame, "Remove car by reg number", "Remove by registration number", "Enter registration number: ");
     private FormDialog findCarByMakeDialog = new FormDialog(this, frame, "Find car by make", "Find by make", "Enter make: ");
@@ -147,7 +147,8 @@ public class CarparkSystem
     /**
      * Handles opening the select parking spot dialog
      */
-    public void openParkCarDialog() {
+    public void openParkCarDialog(String spotId) {
+        parkCarDialog = new ParkCarDialog(this, frame, spotId);
         parkCarDialog.setLocationRelativeTo(frame); // Center dialog in the middle of the frame
         parkCarDialog.setVisible(true); // Show dialog
     }
@@ -165,7 +166,6 @@ public class CarparkSystem
         if (!message.equals("Car parked successfully")) {
             // If parking is not successful, show error
             showInfo(message, "Error");
-            return; // To not close the dialog
         } else {
             // else update parking spot view
             // and show info dialog

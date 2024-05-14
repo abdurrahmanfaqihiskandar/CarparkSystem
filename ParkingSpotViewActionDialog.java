@@ -19,7 +19,7 @@ public class ParkingSpotViewActionDialog extends JDialog {
     private JButton closeButton = new JButton("Cancel");
 
     public ParkingSpotViewActionDialog(CarparkSystem controller, JFrame parent, ParkingSpotView source) {
-        super(parent, "Parking spot actions", true);
+        super(parent, "Parking spot " + source.getParkingSpot().getId(), true);
         this.controller = controller;
         this.source = source;
 
@@ -47,25 +47,26 @@ public class ParkingSpotViewActionDialog extends JDialog {
      * Action listener for add car button
      */
     public void addCarActionListener() {
+        String parkingSpotId = this.source.getParkingSpot().getId(); // Get parking spot ID
         this.setVisible(false);
-        this.controller.openParkCarDialog();
+        this.controller.openParkCarDialog(parkingSpotId); // Open park car dialog
     }
 
     /**
      * Action listener for remove car button
      */
     public void removeCarActionListener() {
-        String carRegNo = this.source.getParkingSpot().getParkedCar().getRegNo();
+        String carRegNo = this.source.getParkingSpot().getParkedCar().getRegNo(); // Get car reg no
         this.setVisible(false);
-        this.controller.removeCarByRegNoHandler(carRegNo);
+        this.controller.removeCarByRegNoHandler(carRegNo); // Remove car by reg no
     }
 
     /**
      * Action listener for remove parking spot button
      */
     public void removeParkingSpotActionListener() {
-        String parkingSpotId = this.source.getParkingSpot().getId();
+        String parkingSpotId = this.source.getParkingSpot().getId(); // Get parking spot ID
         this.setVisible(false);
-        this.controller.deleteParkingSpotHandler(parkingSpotId);
+        this.controller.deleteParkingSpotHandler(parkingSpotId); // Delete parking spot
     }
 }
