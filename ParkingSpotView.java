@@ -19,7 +19,7 @@ public class ParkingSpotView extends JButton {
 
         // Set view settings
         setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        setBackground(Color.GREEN);
+        setBackground(new Color(137, 232, 138));
         setBorder(BorderFactory.createLineBorder(new Color(79, 79, 82), 1, true));
         setLayout(new BorderLayout());
         setOpaque(true);
@@ -47,9 +47,11 @@ public class ParkingSpotView extends JButton {
             parkedCarDetails.setText("<html>Registration: " + parkedCar.getRegNo() + "<br />"
                     + parkedCar.getMake() + " " + parkedCar.getModel() + " " + parkedCar.getYear() + "</html>");
             add(parkedCarDetails, BorderLayout.CENTER);
+            setBackground(new Color(242, 90, 90));
         } else {
             // Remove car details from parking spot view
             remove(parkedCarDetails);
+            setBackground(new Color(137, 232, 138));
         }
     }
 }
