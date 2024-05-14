@@ -77,4 +77,16 @@ public class CarparkView extends JPanel {
             }
         }
     }
+
+    /**
+     * Reset parking spot views
+     */
+    public void resetParkingSpotViews() {
+        // Iterate through parking spot views and update the view
+        for (ParkingSpotView current : parkingSpotViews) {
+            current.updateParkingSpotView();
+        }
+        revalidate();
+        repaint();
+    }
 }

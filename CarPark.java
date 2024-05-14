@@ -175,4 +175,18 @@ public class CarPark {
         }
         return result;
     }
+
+    /**
+     * Resets all cars from parking spots in the car park
+     */
+    public void resetCarPark() {
+        // Iterate through parking spots
+        for (ParkingSpot current : this.parkingSpots) {
+            // If parking spot is occupied, remove car from parking spot
+            if (current.isOccupied()) {
+                current.removeCar();
+                this.noUnoccupiedSpots++;
+            }
+        }
+    }
 }

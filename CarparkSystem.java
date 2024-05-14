@@ -24,6 +24,7 @@ public class CarparkSystem
     private FormDialog findCarByRegNoDialog = new FormDialog(this, frame, "Find car by reg number", "Find by registration number", "Enter registration number: ");
     private FormDialog removeCarByRegNoDialog = new FormDialog(this, frame, "Remove car by reg number", "Remove by registration number", "Enter registration number: ");
     private FormDialog findCarByMakeDialog = new FormDialog(this, frame, "Find car by make", "Find by make", "Enter make: ");
+    private ResetCarParkDialog resetCarParkDialog;
 
     public CarparkSystem()
     {
@@ -271,14 +272,23 @@ public class CarparkSystem
         String message = numberOfCarsParked + " car(s) is being removed to reset the carpark.";
 
         // Open reset car park dialog
-        ResetCarParkDialog resetCarParkDialog = new ResetCarParkDialog(this, frame, message);
-        resetCarParkDialog.setVisible(true);
+        resetCarParkDialog = new ResetCarParkDialog(this, frame, message); // Create dialog
+        resetCarParkDialog.setLocationRelativeTo(frame); // Center dialog in the middle of the frame
+        resetCarParkDialog.setVisible(true); // Show dialog
     }
 
     /**
      * Handles resetting car park
      */
     public void resetCarparkHandler() {
+        // Reset carpark model
+        this.carPark.resetCarPark();
+
+        // Update carpark view
+        this.carparkView.resetParkingSpotViews();
+
+        // Close dialog
+        resetCarParkDialog.setVisible(false);
     }
 
     /**
