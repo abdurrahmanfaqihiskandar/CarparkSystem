@@ -196,7 +196,7 @@ public class CarparkSystem
             return; // To not close the dialog
         } else {
             // Show result
-            showInfo("Car with registration " + regNo + " found on spot " + result, "Info");
+            showInfo(result, "Info");
         }
         findCarByRegNoDialog.setVisible(false);
     }

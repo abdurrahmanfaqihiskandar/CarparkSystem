@@ -127,7 +127,8 @@ public class CarPark {
             if (current.isOccupied()) {
                 // Check if parked car matches registration number
                 if (current.getParkedCar().getRegNo().equals(regNo)) {
-                    message = current.getId();
+                    message = "<html>Car with registration " + regNo + " found on spot " + current.getId()
+                            + "<br />Duration of parking: " + current.getParkedCar().getDurationOfParking();
                     break;
                 }
             }
@@ -138,7 +139,7 @@ public class CarPark {
     /**
      * Removes a car by registration number and returns the result of operation
      * @param regNo Registration number of car to remove
-     * @return spot ID that used to hold parked car
+     * @return spot ID that is used to hold parked car
      */
     public String removeCarByRegNo(String regNo) {
         String message = "Car not parked here."; // Initialize message
