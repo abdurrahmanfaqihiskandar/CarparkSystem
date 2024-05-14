@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Project 2: ParkingSpotView class that extends JButton.
@@ -43,9 +44,11 @@ public class ParkingSpotView extends JButton {
     public void updateParkingSpotView() {
         if (parkingSpot.isOccupied()) {
             // Add car details to parking spot view
-            Car parkedCar = parkingSpot.getParkedCar();
+            Car parkedCar = parkingSpot.getParkedCar(); // Get parked car
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
             parkedCarDetails.setText("<html>Registration: " + parkedCar.getRegNo() + "<br />"
-                    + parkedCar.getMake() + " " + parkedCar.getModel() + " " + parkedCar.getYear() + "</html>");
+                    + parkedCar.getMake() + " " + parkedCar.getModel() + " " + parkedCar.getYear()
+                    + "<br />Car parked at: " + parkedCar.getTimeStart().format(formatter) + "</html>");
             add(parkedCarDetails, BorderLayout.CENTER);
             setBackground(new Color(242, 90, 90));
         } else {
