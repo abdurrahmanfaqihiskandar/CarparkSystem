@@ -17,6 +17,7 @@ public class CarparkSystem
     private JFrame frame = new JFrame("Carpark");
     private CarparkView carparkView = new CarparkView();
     private MenuPanel menuPanel = new MenuPanel(this);
+    private TimerPanel timerPanel = new TimerPanel();
 
     private FormDialog addParkingSpotDialog = new FormDialog(this, frame, "Add parking spot", "Add", "Enter spot ID: ");
     private FormDialog deleteParkingSpotDialog = new FormDialog(this, frame, "Delete parking spot", "Delete", "Enter spot ID: ");
@@ -33,6 +34,7 @@ public class CarparkSystem
 
         frame.add(menuPanel, BorderLayout.WEST); // Place menu panel on the left side of frame
         frame.add(carparkView, BorderLayout.CENTER); // Place carpark panel on the right side of the frame
+        frame.add(timerPanel, BorderLayout.NORTH); // Place timer panel on the top side of the frame
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true); // Show frame
