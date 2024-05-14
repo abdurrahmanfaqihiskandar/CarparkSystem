@@ -34,10 +34,10 @@ public class FormDialog extends JDialog {
         // Add action listener to action button
         switch (action) {
             case "Add":
-                this.actionButton.addActionListener(e -> DialogActionListeners.addActionListener(this.formTextField, this.parent, this.controller));
+                this.actionButton.addActionListener(e -> DialogActionListeners.addParkingSpotActionListener(this.formTextField, this.parent, this.controller));
                 break;
             case "Delete":
-                this.actionButton.addActionListener(e -> DialogActionListeners.deleteActionListener(this.formTextField, this.parent, this.controller));
+                this.actionButton.addActionListener(e -> DialogActionListeners.deleteParkingSpotActionListener(this.formTextField, this.parent, this.controller));
                 break;
             case "Find by registration number":
                 this.actionButton.addActionListener(e -> DialogActionListeners.findByRegNoActionListener(this.formTextField, this.parent, this.controller));

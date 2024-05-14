@@ -9,13 +9,13 @@ import javax.swing.*;
 
 public class DialogActionListeners {
     /**
-     * Handles add button click. Gets text input from text field by user
+     * Handles add parking spot button click. Gets text input from text field by user
      * and validates the input. If there is an input error, the error dialog is shown.
      * @param formTextField form text field
      * @param dialogParent parent of dialog component
      * @param controller controller class
      */
-    public static void addActionListener(JTextField formTextField, JFrame dialogParent, CarparkSystem controller) {
+    public static void addParkingSpotActionListener(JTextField formTextField, JFrame dialogParent, CarparkSystem controller) {
         String userInputId = formTextField.getText(); // Get user input id
 
         // Check if spot ID is valid
@@ -37,13 +37,13 @@ public class DialogActionListeners {
     }
 
     /**
-     * Handles delete button click. Gets text input from text field by user
+     * Handles delete parking spot button click. Gets text input from text field by user
      * and validates the input. If there is an input error, the error dialog is shown.
      * @param formTextField form text field
      * @param dialogParent parent of dialog component
      * @param controller controller class
      */
-    public static void deleteActionListener(JTextField formTextField, JFrame dialogParent, CarparkSystem controller) {
+    public static void deleteParkingSpotActionListener(JTextField formTextField, JFrame dialogParent, CarparkSystem controller) {
         String userInputId = formTextField.getText(); // Get user input id
 
         // Check if spot ID is valid
