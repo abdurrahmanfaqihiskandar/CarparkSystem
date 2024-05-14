@@ -1,9 +1,10 @@
+import java.time.Duration;
 import java.time.LocalDateTime;
 
 /**
  * Project 2: Car class that has attributes of id, isEmpty, parkedCar,
  * and parked time.
- * Includes methods to add and remove a car, and start of parking time.
+ * Includes methods to add and remove a car, start of parking time and duration of parking.
  *
  * @author Abdurrahman Faqih 104675143
  * @version 0.1 9 May 2024
@@ -62,5 +63,21 @@ public class Car {
      */
     public LocalDateTime getTimeStart() {
         return this.timeStart;
+    }
+
+    /**
+     * Get duration of parking
+     * @return duration of car parked
+     */
+    public String getDurationOfParking() {
+        String duration;
+        LocalDateTime timeStart = this.getTimeStart();
+        LocalDateTime now = LocalDateTime.now();
+        Duration diff = Duration.between(timeStart, now);
+        long hours = diff.toHours();
+        long mins = diff.minusHours(hours).toMinutes();
+        long secs = diff.minusHours(hours).minusMinutes(mins).toSeconds();
+        duration = hours + " hours " + mins + " minutes " + secs + " seconds.";
+        return duration;
     }
 }
