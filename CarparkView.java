@@ -37,7 +37,6 @@ public class CarparkView extends JPanel {
         revalidate();
     }
 
-
     /**
      * Delete parking spot view.
      * @param spotId parking spot to delete

@@ -1,6 +1,4 @@
 import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Iterator;
 
 /** Project 2: Validators class stores the different validation
  * methods to be used in the application.
