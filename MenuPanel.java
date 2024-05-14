@@ -21,12 +21,7 @@ public class MenuPanel extends JPanel {
     private MenuButton findCarByRegNoBtn = new MenuButton("Find Car By Reg Number", e -> controller.openFindCarByRegNoDialog());
     private MenuButton removeCarByRegNoBtn = new MenuButton("Remove Car By Reg Number", e -> controller.openRemoveCarByRegNoDialog());
     private MenuButton findCarByMakeBtn = new MenuButton("Find Car By Make", e -> controller.openFindCarByMakeDialog());
-    private MenuButton resetCarparkBtn = new MenuButton("Reset Carpark", new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            controller.openAddParkingSpotDialog();
-        }
-    });
+    private MenuButton resetCarparkBtn = new MenuButton("Reset Carpark", e -> controller.openResetCarparkDialog());
     private MenuButton exitBtn = new MenuButton("Exit Program", new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {

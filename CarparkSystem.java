@@ -261,13 +261,34 @@ public class CarparkSystem
     }
 
     /**
+     * Handles opening reset car park dialog
+     */
+    public void openResetCarparkDialog() {
+        // Get number of cars in carpark
+        int numberOfCarsParked = this.carPark.getParkingSpots().size() - this.carPark.getNoUnoccupiedSpots();
+
+        // Initialize message
+        String message = numberOfCarsParked + " car(s) is being removed to reset the carpark.";
+
+        // Open reset car park dialog
+        ResetCarParkDialog resetCarParkDialog = new ResetCarParkDialog(this, frame, message);
+        resetCarParkDialog.setVisible(true);
+    }
+
+    /**
+     * Handles resetting car park
+     */
+    public void resetCarparkHandler() {
+    }
+
+    /**
      * Helper function to create a message dialog.
      * @param message message to inform user
      * @param type type of message
      */
     public void showInfo(String message, String type) {
         MessageDialog messageDialog;
-        if (type.equals("Error")) {
+        if (type.equals(MessageDialog.ERROR)) {
             messageDialog = new MessageDialog(frame,
                     message, MessageDialog.ERROR);
         } else {

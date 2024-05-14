@@ -4,7 +4,7 @@ import java.awt.*;
 /**
  * Project 2: FormDialog class extends JDialog.
  * General dialog component for dialogs that requires a field input.
- * Stores parent frame, action buttons, form label and input.
+ * Stores reference to controller and parent frame, action buttons, form label and input.
  *
  * @author Abdurrahman Faqih 104675143
  * @version 0.1 9 May 2024

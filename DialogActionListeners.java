@@ -143,4 +143,12 @@ public class DialogActionListeners {
         formTextField.setText("");
         formTextField.grabFocus();
     }
+
+    /**
+     * Handles reset carpark button click.
+     * @param controller controller class
+     */
+    public static void resetCarParkActionListener(CarparkSystem controller) {
+        controller.resetCarparkHandler();
+    }
 }
