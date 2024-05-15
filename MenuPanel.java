@@ -3,7 +3,8 @@ import java.awt.*;
 
 /**
  * Project 2: MenuPanel class that extends JPanel.
- * Stores reference to parent class, and the different buttons that make up the menu
+ * Stores reference to parent class, and the different buttons that make up the
+ * menu
  * of the GUI.
  *
  * @author Abdurrahman Faqih 104675143
@@ -11,13 +12,19 @@ import java.awt.*;
  */
 
 public class MenuPanel extends JPanel {
-    private CarparkSystem controller;
-    private MenuButton addParkingSpotBtn = new MenuButton("Add Parking Spot", e -> controller.openAddParkingSpotDialog());
-    private MenuButton delParkingSpotBtn = new MenuButton("Delete Parking Spot", e -> controller.openDeleteParkingSpotDialog());
+    private CarparkSystem controller; // Store reference to controller
+
+    // Initialize menu buttons
+    private MenuButton addParkingSpotBtn = new MenuButton("Add Parking Spot",
+            e -> controller.openAddParkingSpotDialog());
+    private MenuButton delParkingSpotBtn = new MenuButton("Delete Parking Spot",
+            e -> controller.openDeleteParkingSpotDialog());
     private MenuButton listSpotsBtn = new MenuButton("List Parking Spots", e -> controller.listParkingSpots());
     private MenuButton parkCarBtn = new MenuButton("Park A Car", e -> controller.openParkCarDialog(""));
-    private MenuButton findCarByRegNoBtn = new MenuButton("Find Car By Reg Number", e -> controller.openFindCarByRegNoDialog());
-    private MenuButton removeCarByRegNoBtn = new MenuButton("Remove Car By Reg Number", e -> controller.openRemoveCarByRegNoDialog());
+    private MenuButton findCarByRegNoBtn = new MenuButton("Find Car By Reg Number",
+            e -> controller.openFindCarByRegNoDialog());
+    private MenuButton removeCarByRegNoBtn = new MenuButton("Remove Car By Reg Number",
+            e -> controller.openRemoveCarByRegNoDialog());
     private MenuButton findCarByMakeBtn = new MenuButton("Find Car By Make", e -> controller.openFindCarByMakeDialog());
     private MenuButton resetCarparkBtn = new MenuButton("Reset Carpark", e -> controller.openResetCarparkDialog());
     private MenuButton exitBtn = new MenuButton("Exit Program", e -> controller.openExitProgramDialog());

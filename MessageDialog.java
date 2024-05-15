@@ -11,18 +11,22 @@ import java.awt.*;
  */
 
 public class MessageDialog extends JDialog {
+    // Initialize dialog components
     private JButton closeButton = new JButton("Close");
+
+    // Dialog types
     public static final String ERROR = "Error";
     public static final String INFO = "Info";
 
     public MessageDialog(JFrame parent, String message, String type) {
         super(parent, type, true);
 
+        // Set layout
         setLayout(new FlowLayout());
 
+        // Add components
         JLabel msg = new JLabel(message);
         add(msg);
-
         this.closeButton.addActionListener(e -> this.setVisible(false));
         add(closeButton);
 

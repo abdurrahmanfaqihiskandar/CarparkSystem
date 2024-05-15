@@ -8,6 +8,7 @@
  */
 
 public class ParkingSpot {
+    // Initialize details
     private String id;
     private Car parkedCar;
 

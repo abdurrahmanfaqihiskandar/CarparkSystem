@@ -11,7 +11,9 @@ import java.awt.*;
  */
 
 public class ActionDialog extends JDialog {
-    private CarparkSystem controller;
+    private CarparkSystem controller; // Store reference to controller
+
+    // Initialize dialog components
     private JButton actionButton;
     private JButton closeButton = new JButton("Cancel");
     private JLabel resetMessage;

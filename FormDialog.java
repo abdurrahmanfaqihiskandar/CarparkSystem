@@ -4,14 +4,17 @@ import java.awt.*;
 /**
  * Project 2: FormDialog class extends JDialog.
  * General dialog component for dialogs that requires a field input.
- * Stores reference to controller and parent frame, action buttons, form label and input.
+ * Stores reference to controller and parent frame, action buttons, form label
+ * and input.
  *
  * @author Abdurrahman Faqih 104675143
  * @version 0.1 9 May 2024
  */
 
 public class FormDialog extends JDialog {
-    private CarparkSystem controller;
+    private CarparkSystem controller; // Store reference to controller
+
+    // Initialize dialog components
     private JFrame parent;
     private JButton actionButton;
     private JButton closeButton = new JButton("Cancel");
@@ -34,19 +37,24 @@ public class FormDialog extends JDialog {
         // Add action listener to action button
         switch (action) {
             case "Add":
-                this.actionButton.addActionListener(e -> DialogActionListeners.addParkingSpotActionListener(this.formTextField, this.parent, this.controller));
+                this.actionButton.addActionListener(e -> DialogActionListeners
+                        .addParkingSpotActionListener(this.formTextField, this.parent, this.controller));
                 break;
             case "Delete":
-                this.actionButton.addActionListener(e -> DialogActionListeners.deleteParkingSpotActionListener(this.formTextField, this.parent, this.controller));
+                this.actionButton.addActionListener(e -> DialogActionListeners
+                        .deleteParkingSpotActionListener(this.formTextField, this.parent, this.controller));
                 break;
             case "Find by registration number":
-                this.actionButton.addActionListener(e -> DialogActionListeners.findByRegNoActionListener(this.formTextField, this.parent, this.controller));
+                this.actionButton.addActionListener(e -> DialogActionListeners
+                        .findByRegNoActionListener(this.formTextField, this.parent, this.controller));
                 break;
             case "Remove by registration number":
-                this.actionButton.addActionListener(e -> DialogActionListeners.removeByRegNoActionListener(this.formTextField, this.parent, this.controller));
+                this.actionButton.addActionListener(e -> DialogActionListeners
+                        .removeByRegNoActionListener(this.formTextField, this.parent, this.controller));
                 break;
             case "Find by make":
-                this.actionButton.addActionListener(e -> DialogActionListeners.findByMakeActionListener(this.formTextField, this.parent, this.controller));
+                this.actionButton.addActionListener(e -> DialogActionListeners
+                        .findByMakeActionListener(this.formTextField, this.parent, this.controller));
                 break;
         }
         add(this.actionButton);

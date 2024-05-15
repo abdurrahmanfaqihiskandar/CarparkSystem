@@ -4,15 +4,18 @@ import java.awt.*;
 /**
  * Project 2: ParkingSpotViewActionDialog class extends JDialog.
  * Dialog component for parking spot view user clicks.
- * Stores reference to controller CarparkSystem, source parking spot view and action buttons.
+ * Stores reference to controller CarparkSystem, source parking spot view and
+ * action buttons.
  *
  * @author Abdurrahman Faqih 104675143
  * @version 0.1 9 May 2024
  */
 
 public class ParkingSpotViewActionDialog extends JDialog {
-    private CarparkSystem controller;
-    private ParkingSpotView source;
+    private CarparkSystem controller; // Store reference to controller
+    private ParkingSpotView source; // Store reference to source parking spot view
+
+    // Initialize dialog components
     private JButton addCarButton = new JButton("Add car");
     private JButton removeCarButton = new JButton("Remove car");
     private JButton removeParkingSpotButton = new JButton("Remove parking spot");

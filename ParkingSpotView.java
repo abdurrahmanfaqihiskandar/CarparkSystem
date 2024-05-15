@@ -11,7 +11,9 @@ import java.time.format.DateTimeFormatter;
  */
 
 public class ParkingSpotView extends JButton {
-    private CarparkSystem controller;
+    private CarparkSystem controller; // Store reference to controller
+
+    // Initialize view components
     private ParkingSpot parkingSpot;
     private JLabel parkingSpotId = new JLabel();
     private JLabel parkedCarDetails = new JLabel();

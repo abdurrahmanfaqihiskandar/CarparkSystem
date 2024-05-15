@@ -9,7 +9,7 @@ import java.util.Iterator;
  */
 
 public class CarPark {
-    private ArrayList<ParkingSpot> parkingSpots;
+    private ArrayList<ParkingSpot> parkingSpots; // Keep track of parking spots
     private int noUnoccupiedSpots; // Keep track of number of unoccupied spots
 
     public CarPark() {
@@ -19,6 +19,7 @@ public class CarPark {
 
     /**
      * Gets list of parking spots and returns it.
+     * 
      * @return list of parkingSpots
      */
     public ArrayList<ParkingSpot> getParkingSpots() {
@@ -27,6 +28,7 @@ public class CarPark {
 
     /**
      * Gets number of unoccupied spots and returns it.
+     * 
      * @return number of unoccupied spots
      */
     public int getNoUnoccupiedSpots() {
@@ -34,8 +36,10 @@ public class CarPark {
     }
 
     /**
-     * Adds new parking spot and returns the created parking spot if new parking spot id is valid
+     * Adds new parking spot and returns the created parking spot if new parking
+     * spot id is valid
      * and added to car park. Returns null otherwise.
+     * 
      * @param id id of new parking spot
      * @return the newly created parking spot if successfully added. null otherwise.
      */
@@ -54,6 +58,7 @@ public class CarPark {
     /**
      * Deletes a parking spot from the car park
      * if it is not occupied
+     * 
      * @param spotId ID of parking spot to be deleted
      * @return result of deletion
      */
@@ -61,7 +66,7 @@ public class CarPark {
         String message = "Spot does not exist."; // Initialize message
         // Iterator of parking spot
         Iterator<ParkingSpot> it = this.parkingSpots.iterator();
-        while(it.hasNext()) {
+        while (it.hasNext()) {
             ParkingSpot current = it.next(); // Assign parking spot as current
             // Find parking spot that matches spotId
             if (current.getId().equals(spotId)) {
@@ -82,8 +87,9 @@ public class CarPark {
     /**
      * Parks a car in a parking spot from the car park
      * if it is not occupied
+     * 
      * @param spotId ID of parking spot
-     * @param car Car to be parked
+     * @param car    Car to be parked
      * @return result of parking car
      */
     public String parkCarInSpot(String spotId, Car car) {
@@ -117,6 +123,7 @@ public class CarPark {
     /**
      * Finds a car by registration number and returns the parking spot ID
      * with car in it.
+     * 
      * @param regNo Registration number of car to find
      * @return result of finding car by registration number
      */
@@ -139,6 +146,7 @@ public class CarPark {
 
     /**
      * Removes a car by registration number and returns the result of operation
+     * 
      * @param regNo Registration number of car to remove
      * @return spot ID that is used to hold parked car
      */
@@ -161,6 +169,7 @@ public class CarPark {
 
     /**
      * Find car(s) by make and returns the result
+     * 
      * @param make Make of car to find
      * @return result of finding car(s) by make
      */

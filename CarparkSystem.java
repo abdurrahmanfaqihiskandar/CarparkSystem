@@ -11,26 +11,33 @@ import java.util.ArrayList;
  * @version 0.1 9 May 2024
  */
 
-public class CarparkSystem
-{
+public class CarparkSystem {
+    // Initialize carpark model
     private CarPark carPark = new CarPark();
+
+    // Initialize view components
     private JFrame frame = new JFrame("Carpark");
     private CarparkView carparkView = new CarparkView(this);
     private MenuPanel menuPanel = new MenuPanel(this);
     private TimerPanel timerPanel = new TimerPanel();
 
+    // Initialize dialogs
     private FormDialog addParkingSpotDialog = new FormDialog(this, frame, "Add parking spot", "Add", "Enter spot ID: ");
-    private FormDialog deleteParkingSpotDialog = new FormDialog(this, frame, "Delete parking spot", "Delete", "Enter spot ID: ");
+    private FormDialog deleteParkingSpotDialog = new FormDialog(this, frame, "Delete parking spot", "Delete",
+            "Enter spot ID: ");
     private ParkCarDialog parkCarDialog;
-    private FormDialog findCarByRegNoDialog = new FormDialog(this, frame, "Find car by reg number", "Find by registration number", "Enter registration number: ");
-    private FormDialog removeCarByRegNoDialog = new FormDialog(this, frame, "Remove car by reg number", "Remove by registration number", "Enter registration number: ");
-    private FormDialog findCarByMakeDialog = new FormDialog(this, frame, "Find car by make", "Find by make", "Enter make: ");
+    private FormDialog findCarByRegNoDialog = new FormDialog(this, frame, "Find car by reg number",
+            "Find by registration number", "Enter registration number: ");
+    private FormDialog removeCarByRegNoDialog = new FormDialog(this, frame, "Remove car by reg number",
+            "Remove by registration number", "Enter registration number: ");
+    private FormDialog findCarByMakeDialog = new FormDialog(this, frame, "Find car by make", "Find by make",
+            "Enter make: ");
     private ActionDialog resetCarParkDialog;
-    private ActionDialog exitProgramDialog = new ActionDialog(this, frame, "Exit program", ActionDialog.EXIT, "Program ends!");
+    private ActionDialog exitProgramDialog = new ActionDialog(this, frame, "Exit program", ActionDialog.EXIT,
+            "Program ends!");
     private ParkingSpotViewActionDialog parkingSpotViewActionDialog;
 
-    public CarparkSystem()
-    {
+    public CarparkSystem() {
         frame.setSize(1000, 500); // Set dimensions of frame
 
         frame.add(menuPanel, BorderLayout.WEST); // Place menu panel on the left side of frame
@@ -53,6 +60,7 @@ public class CarparkSystem
      * Handles adding a parking spot.
      * CarparkSystem will pass user input to CarPark model
      * and the newly created parking spot to carpark view.
+     * 
      * @param spotId id input from dialog text field
      */
     public void addParkingSpotHandler(String spotId) {
@@ -82,6 +90,7 @@ public class CarparkSystem
      * Handles deleting a parking spot.
      * CarparkSystem will pass user input to CarPark model
      * to delete parking spot.
+     * 
      * @param spotId id input from dialog text field
      */
     public void deleteParkingSpotHandler(String spotId) {
@@ -132,7 +141,8 @@ public class CarparkSystem
                 // if occupied, registration and make of car
                 message = message + "<br />Spot ID: " + current.getId() + ", " + (current.isOccupied()
                         ? "Parked car: " + current.getParkedCar().getRegNo() + " " + current.getParkedCar().getMake()
-                        + "<br />Duration of parking: " + current.getParkedCar().getDurationOfParking() + "<br />"
+                                + "<br />Duration of parking: " + current.getParkedCar().getDurationOfParking()
+                                + "<br />"
                         : "Empty");
             }
         }
@@ -157,6 +167,7 @@ public class CarparkSystem
      * Handles parking a car in a parking spot.
      * CarparkSystem will pass spot ID and car to CarPark model
      * to park car in parking spot.
+     * 
      * @param spotId user input from dialog text field
      */
     public void parkCarHandler(String spotId, Car car) {
@@ -187,6 +198,7 @@ public class CarparkSystem
      * Handles finding car by registration number.
      * CarparkSystem will pass registration number to CarPark model
      * to find car by registration number.
+     * 
      * @param regNo user input from dialog text field
      */
     public void findCarByRegNoHandler(String regNo) {
@@ -214,6 +226,7 @@ public class CarparkSystem
      * Handles removing car by registration number.
      * CarparkSystem will pass registration number to CarPark model
      * to remove car by registration number.
+     * 
      * @param regNo user input from dialog text field
      */
     public void removeCarByRegNoHandler(String regNo) {
@@ -243,6 +256,7 @@ public class CarparkSystem
      * Handles closing the find car by make dialog.
      * CarparkSystem will pass make string to CarPark model
      * to find car by make.
+     * 
      * @param make user input from dialog text field
      */
     public void findCarByMakeHandler(String make) {
@@ -253,7 +267,8 @@ public class CarparkSystem
             return; // To not close the dialog
         } else {
             // Show result
-            String message = "<html>" + result.size() + " car(s) found with make " + make + "<br />====================="; // Initialize message
+            String message = "<html>" + result.size() + " car(s) found with make " + make
+                    + "<br />====================="; // Initialize message
             // Iterate through array list and print result
             for (String current : result) {
                 message = message + "<br />" + current + "<br />";
@@ -324,8 +339,9 @@ public class CarparkSystem
 
     /**
      * Helper function to create a message dialog.
+     * 
      * @param message message to inform user
-     * @param type type of message
+     * @param type    type of message
      */
     public void showInfo(String message, String type) {
         MessageDialog messageDialog;
@@ -342,6 +358,7 @@ public class CarparkSystem
 
     /**
      * Main function to run the application
+     * 
      * @param args arguments passed to application at execution
      */
     public static void main(String[] args) {

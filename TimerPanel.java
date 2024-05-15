@@ -11,7 +11,7 @@ import java.time.format.DateTimeFormatter;
  */
 
 public class TimerPanel extends JPanel {
-    private JLabel timeLabel = new JLabel();
+    private JLabel timeLabel = new JLabel(); // Initialize view component
     private final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("HH:mm:ss"); // Format datetime object
 
     public TimerPanel() {

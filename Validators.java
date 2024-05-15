@@ -8,6 +8,7 @@ import java.util.ArrayList;
  */
 
 public class Validators {
+    // Initialize regex
     private static final String PARKING_SPOT_REGEX = "^[A-Z]{1}\\d{3}$";
     private static final String CAR_REG_NO_REGEX = "^[A-Z]{1}\\d{4}$";
 

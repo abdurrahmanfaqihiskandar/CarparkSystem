@@ -11,8 +11,10 @@ import java.awt.*;
  */
 
 public class ParkCarDialog extends JDialog {
-    private CarparkSystem controller;
-    private JFrame parent;
+    private CarparkSystem controller; // Store reference to controller
+    private JFrame parent; // Store reference to parent frame
+
+    // Initialize dialog components
     private JButton parkButton = new JButton("Park car");
     private JButton closeButton = new JButton("Cancel");
     private JLabel spotIdLabel = new JLabel("Spot ID: ");
@@ -56,7 +58,8 @@ public class ParkCarDialog extends JDialog {
 
     /**
      * Handles park car button click. Gets text input into text field by user
-     * and validates the input. If there is an input error, the error dialog is shown.
+     * and validates the input. If there is an input error, the error dialog is
+     * shown.
      */
     public void parkCarListener() {
         // Extract values
@@ -79,7 +82,8 @@ public class ParkCarDialog extends JDialog {
             boolean isCarRegValid = Validators.validateCarRegNo(carRegNo); // Validate car reg number
             if (!isCarRegValid) {
                 MessageDialog messageDialog = new MessageDialog(this.parent,
-                        "Invalid car registration number. Car registration number must be an uppercase letter followed by 4 digits.", MessageDialog.ERROR);
+                        "Invalid car registration number. Car registration number must be an uppercase letter followed by 4 digits.",
+                        MessageDialog.ERROR);
                 messageDialog.setLocationRelativeTo(this.parent);
                 messageDialog.setVisible(true);
                 return;

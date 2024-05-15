@@ -12,8 +12,8 @@ import java.util.Iterator;
  */
 
 public class CarparkView extends JPanel {
-    private CarparkSystem controller;
-    private ArrayList<ParkingSpotView> parkingSpotViews = new ArrayList<ParkingSpotView>();
+    private CarparkSystem controller; // Store reference to controller
+    private ArrayList<ParkingSpotView> parkingSpotViews = new ArrayList<ParkingSpotView>(); // Keep track of parking spot views
 
     public CarparkView(CarparkSystem controller) {
         this.controller = controller;
@@ -26,6 +26,7 @@ public class CarparkView extends JPanel {
 
     /**
      * Create a new parking spot view from a parking spot.
+     * 
      * @param parkingSpot newly created parking spot
      */
     public void addParkingSpotView(ParkingSpot parkingSpot) {
@@ -42,12 +43,13 @@ public class CarparkView extends JPanel {
 
     /**
      * Delete parking spot view.
+     * 
      * @param spotId parking spot to delete
      */
     public void deleteParkingSpotView(String spotId) {
         // Iterator of parking spot view
         Iterator<ParkingSpotView> it = this.parkingSpotViews.iterator();
-        while(it.hasNext()) {
+        while (it.hasNext()) {
             ParkingSpotView current = it.next(); // Assign parking spot view as current
             // only remove parking spot if
             // parking spot matches the id
@@ -63,6 +65,7 @@ public class CarparkView extends JPanel {
 
     /**
      * Update parking spot view.
+     * 
      * @param spotId parking spot to update
      */
     public void updateParkingSpotView(String spotId) {
