@@ -6,7 +6,7 @@ PURPOSE OF PROJECT: Project 2 for Object Oriented Programming module
 
 VERSION or DATE: 15 May 2024
 
-HOW TO START THIS PROJECT: Open up project in BlueJ and run the CarparkSystem java file.
+HOW TO START THIS PROJECT: Ensure you have Java 21 installed. Run the CarparkSystem java file.
 
 AUTHORS: Abdurrahman Faqih Bin Iskandar 104675143
 
